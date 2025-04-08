@@ -21,7 +21,7 @@
       <label for="skills">Skills</label>
       <input type="text" v-model="tempSkill" @keyup="addSkill" />
   
-      <!-- Display each skill as a pill with a click event to remove it -->
+    
       <div 
         v-for="(skill, index) in skills" 
         :key="index" 
@@ -52,19 +52,19 @@
     },
     methods: {
       addSkill(e) {
-        // Only add skill if user types ',' to separate skills
+       
         if (e.key === ',' && this.tempSkill) {
-          // Remove the comma from the end
+         
           const parsedSkill = this.tempSkill.slice(0, -1).trim()
-          // Add skill to array if it's not already there
+         
           if (!this.skills.includes(parsedSkill)) {
             this.skills.push(parsedSkill)
           }
-          // Reset tempSkill
+       
           this.tempSkill = ''
         }
       },
-      // Remove skill from the array when a pill is clicked
+    
       removeSkill(index) {
         this.skills.splice(index, 1)
       },
